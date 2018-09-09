@@ -1,5 +1,5 @@
 .container { 
-    margin: 150px 500px;
+    margin: 150px 20%;
     background-color: #e6e6e6;
     width: 500px;
     height: 300px;
@@ -12,4 +12,8 @@
 
 .container-title { 
     font-size: 18px;
+}
+
+.error { 
+    color: red;
 }

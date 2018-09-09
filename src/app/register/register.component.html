@@ -3,23 +3,18 @@
     <div class="container-title">Registre-se:</div>
     <br>
     <span class="ui-float-label">
-        <input id="user" type="text" size="30" pInputText> 
+        <input id="user" type="text" size="30" pInputText [(ngModel)]="user"> 
         <label for="user">Usuário</label>
     </span>
     <br>
     <span class="ui-float-label">
-        <input id="password" type="text" size="30" pInputText> 
-        <label for="password">E-mail</label>
+        <input id="email" type="text" size="30" pInputText [(ngModel)]="email"> 
+        <label for="email">E-mail</label>
     </span>
     <br>
     <span class="ui-float-label">
-        <input id="password" type="text" size="30" pInputText> 
+        <input id="password" type="text" size="30" pInputText [(ngModel)]="password"> 
         <label for="password">Senha</label>
-    </span>
-    <br>
-    <span class="ui-float-label">
-        <input id="password" type="text" size="30" pInputText> 
-        <label for="password">Confirme a senha</label>
     </span>
     <br>
     <button class="btn btn-primary" (click)="register()">Cadastrar</button>

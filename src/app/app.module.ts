@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   { path: 'manageElections', component: ManageElectionComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'menu', component: MenuComponent },
-  { path: "", redirectTo: "/login", pathMatch: "full"} 
+  { path: "", redirectTo: "/menu", pathMatch: "full"} 
 ];
 
 @NgModule({
@@ -50,8 +50,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     TabMenuModule,
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      appRoutes
     )
   ],
   providers: [
