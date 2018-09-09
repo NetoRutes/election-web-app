@@ -10,8 +10,8 @@ export class AuthenticationService {
     this.http = http;
   }
 
-  logInUser(user, password, callback) {
-    console.log(user, password); 
-    return this.http.post(AuthenticationService.ENDPOINT, user, password).subscribe(callback);
+  logInUser(data, callback) {
+    console.log(data); 
+    return this.http.post(AuthenticationService.ENDPOINT, data).subscribe(callback);
   }
 }
