@@ -14,9 +14,11 @@ export class MenuComponent implements OnInit {
   constructor(private authenticationService : AuthenticationService, public router: Router) { }
 
   ngOnInit() {
-    if (localStorage.getItem('token') === null) { 
+
+    if ( localStorage.getItem('token') === null || localStorage.getItem('user')  === null) { 
       this.router.navigate(['/']);
     }
+
     this.user = localStorage.getItem('user');
   }
 

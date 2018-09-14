@@ -21,13 +21,17 @@ import { AuthenticationService } from './services/authentication/authentication.
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyHttpInterceptor } from './services/myhttpinterceptor';
 import { ManageElectionComponent } from './manage-election/manage-election.component';
+import { ApirestService } from './services/apirest/apirest.service';
+import { ElectionsListComponent } from './elections-list/elections-list.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'manageElections', component: ManageElectionComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'menu', component: MenuComponent },
-  { path: "", redirectTo: "/menu", pathMatch: "full"} 
+  { path: 'candidates', component: CandidateListComponent },
+  { path: 'elections', component: ElectionsListComponent },
+  { path: "", redirectTo: "/login", pathMatch: "full"} 
 ];
 
 @NgModule({
@@ -37,7 +41,8 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     MenuComponent,
-    ManageElectionComponent
+    ManageElectionComponent,
+    ElectionsListComponent
   ],
   imports: [
     DropdownModule,
@@ -55,11 +60,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     AuthenticationService, 
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: MyHttpInterceptor,
-      multi: true
-    }
+    ApirestService
   ],
   bootstrap: [AppComponent]
 })

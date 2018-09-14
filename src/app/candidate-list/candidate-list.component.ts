@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApirestService } from '../services/apirest/apirest.service';
+import { AuthenticationService } from '../services/authentication/authentication.service';
 
 interface Car { field: String, header: String }; 
 @Component({
@@ -17,19 +19,27 @@ export class CandidateListComponent implements OnInit {
   cars3: Car[];
   cols: any[];
 
-  constructor() { }
+  constructor(private apiRestService: ApirestService, private authenticationService: AuthenticationService) { }
 
     ngOnInit() {
        this.cars1 = [{field: 'hahaah', header: 'hisuahdiusa'}];
        
 
         this.cols = [
-            { field: 'vin', header: 'Candidato' },
-            { field: 'year', header: 'Número' },
+            { field: 'vin', header: 'Nome' },
+            { field: 'year', header: 'Sobrenome' },
             { field: 'brand', header: 'Partido' },
-            { field: 'color', header: 'Propostas' }
         ];
+
+        this.apiRestService.getCandidates(candidates => { 
+            console.log(candidates);
+        }, error => { 
+            console.log(error);
+        }); 
+
+        //this.authenticationService.logInUser('dshudhusa', callback => {}, error => { });
     }
+
   filterBrands(event) {
     this.filteredBrands = [];
     for(let i = 0; i < this.brands.length; i++) {
