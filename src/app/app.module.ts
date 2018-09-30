@@ -19,10 +19,10 @@ import { MenuComponent } from './menu/menu.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationService } from './services/authentication/authentication.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MyHttpInterceptor } from './services/myhttpinterceptor';
 import { ManageElectionComponent } from './manage-election/manage-election.component';
 import { ApirestService } from './services/apirest/apirest.service';
 import { ElectionsListComponent } from './elections-list/elections-list.component';
+import { VoteComponent } from './vote/vote.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -31,7 +31,8 @@ const appRoutes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'candidates', component: CandidateListComponent },
   { path: 'elections', component: ElectionsListComponent },
-  { path: "", redirectTo: "/login", pathMatch: "full"} 
+  { path: 'vote', component: VoteComponent },
+  { path: "", redirectTo: "/menu", pathMatch: "full"}
 ];
 
 @NgModule({
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     MenuComponent,
     ManageElectionComponent,
-    ElectionsListComponent
+    ElectionsListComponent,
+    VoteComponent
   ],
   imports: [
     DropdownModule,
@@ -60,7 +62,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     AuthenticationService, 
-    ApirestService
+    ApirestService,
   ],
   bootstrap: [AppComponent]
 })
