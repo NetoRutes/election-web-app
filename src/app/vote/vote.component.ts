@@ -12,6 +12,7 @@ export class VoteComponent implements OnInit {
   selectedVote : Number;
   voteSucess : Boolean = false; 
   voteError: Boolean = false;  
+  userId; 
   constructor(private apiRestService: ApirestService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
@@ -19,10 +20,15 @@ export class VoteComponent implements OnInit {
   }
 
   vote() { 
-    this.apiRestService.voteInElection({'user': 1, 'election': 1, 'candidate': Number(this.selectedVote)}, callback => { 
-      this.voteSucess = true; 
-    }, error => { 
-      this.voteError = true; 
+
+    this.apiRestService.getCurrentUser(userId => { 
+      console.log(userId.id)
+      this.userId = Number(userId.id)
+      this.apiRestService.voteInElection({'user': this.userId, 'election': 1, 'candidate': Number(this.selectedVote)}, callback => { 
+        this.voteSucess = true; 
+      }, error => { 
+        this.voteError = true; 
+      });
     });
   }
 

@@ -23,5 +23,9 @@ export class ApirestService {
   voteInElection(data, callback, error){ 
     return this.http.post(this.API_ENDPOINT + 'vote/', data, { headers: { Authorization : 'Token 4d3de37d506889b206b2aa811dcce7f2669c00fe'}}).subscribe(callback, error);
   }
+
+  getCurrentUser(callback){ 
+    return this.http.get(this.API_ENDPOINT + 'user/current_user/', { headers: { Authorization : 'Token 4d3de37d506889b206b2aa811dcce7f2669c00fe'}}).subscribe(callback);
+  }
 }
 
