@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication/authentication.service';
+import { ApirestService } from '../services/apirest/apirest.service';
 
 @Component({
   selector: 'app-vote',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VoteComponent implements OnInit {
 
-  constructor() { }
+  selectedVote : Number;
+  voteSucess : Boolean = false; 
+  voteError: Boolean = false;  
+  constructor(private apiRestService: ApirestService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
+
+  }
+
+  vote() { 
+    this.apiRestService.voteInElection({'user': 1, 'election': 1, 'candidate': Number(this.selectedVote)}, callback => { 
+      this.voteSucess = true; 
+    }, error => { 
+      this.voteError = true; 
+    });
   }
 
 }

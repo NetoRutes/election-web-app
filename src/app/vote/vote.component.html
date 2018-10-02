@@ -4,8 +4,17 @@
   <span class="title center">Vote</span>
 </div>
 <div class="vote">
-  <input type="text" name="fname"  maxlength="4" style="width: 300px; text-align: center">
+  <input type="text" name="fname" [(ngModel)]="selectedVote" [disabled]="voteSucess" maxlength="4" style="width: 300px; text-align: center">
 </div>
 <div class="center">
-  <button class="btn btn-primary">Votar</button>
+  <button class="btn btn-primary" (click)="vote()">Votar</button>
 </div>
+
+<div class="center" *ngIf="voteSucess">
+  <button class="btn btn-sucess msg">Sucesso</button>
+</div>
+
+<div class="center"  *ngIf="voteError">
+  <button class="btn btn-danger msg">Erro, tente novamente</button>
+</div>
+

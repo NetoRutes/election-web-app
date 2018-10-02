@@ -8,7 +8,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 import {TableModule} from 'primeng/table';
 import {InputTextModule} from 'primeng/inputtext';
 import {TabMenuModule} from 'primeng/tabmenu';
-import {MenuItem} from 'primeng/api';
+
 
 import { AppComponent } from './app.component';
 import { CandidateListComponent } from './candidate-list/candidate-list.component';

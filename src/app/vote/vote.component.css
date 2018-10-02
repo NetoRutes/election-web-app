@@ -16,3 +16,8 @@
 .center { 
     text-align: center;
 }
+
+.msg { 
+    margin: 20px 0px;
+    width: 200px;
+}
